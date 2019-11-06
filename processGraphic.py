@@ -18,6 +18,7 @@ ref_arquivo = open("data/"+name+".txt", "r")
 data = {}
 for linha in ref_arquivo:
     valores = linha.split()
+    print(valores)
     val1 = int(valores[7])
     if not(val1 in data):
         data[val1] = {}
@@ -61,15 +62,19 @@ title = name.replace('_', ' ').upper()
 plt.title(title)
 plt.yticks(np.arange(0, size_nodes, 5))
 
-legend_vector = []
-for i in range(1, 10):
-    legend_item = (str(i) + "\xBA shot").decode(encoding='latin-1')
-    legend_vector.append(legend_item)
-legend_vector.append("...")
-plt.legend(legend_vector)
-# plt.legend(loc='best')
+# legend_vector = []
+# for i in range(1, 10):
+#     print(i)
+#     print(str(i))
+#     legend_item = (str(i) + "\xBA shot")#.decode(encoding='latin-1')
+#     legend_vector.append(legend_item)
+# legend_vector.append("...")
+# plt.legend(legend_vector)
+# plt.legend(loc='nome')
+
+plt.legend([])
 
 plt.ylabel('Nodes')
 plt.xlabel('Time (s)')
-# plt.show()
-plt.savefig("figures/"+name+'.png')
+#plt.show()
+plt.savefig("figures/"+name+".png", format="png")
